@@ -1,0 +1,26 @@
+1. 
+                if (t != nullptr) {
+    [1] O(n)        makeEmpty(t->left);
+    [2] O(n)        makeEmpty(t->right);
+                    delete t;
+                }
+
+                    t = nullptr;
+
+    The private member function makeEmpty(BinaryNode* &t) has a worst-case time complexity of O(n). The function recursively calls itself to delete, 
+    emptying nodes within each subtree until it is empty. All other operations in this function run in constant time. 
+    Therefore, the above function has a worst-case time complexity of O(n).
+
+
+2. 
+    The conversion from an infix to postfix expression occurs in the private member function printInfixExpression(BET::BinaryNode *n).
+    This function has a worst-case time complexity of O(n). This function recursively traverses the binary tree, specifically via an in-order traversal.
+    The complexity of this function is equal to O(N + E), where N is equal to the number of nodes in a tree and E is equal to the number of edges in a tree. 
+    By definition, the number of edges in a binary tree is equal to the number of nodes in a tree plus one. Given that, we can simplify our time complexity to 
+    O(n + n + 1). This can be further simplified to O(2n + 1) or O(n). Therefore we can conclude that the time complexity of this function is O(n).
+
+    This function, however, runs on the assumption that the tree has already been constructed from a postfix expression, which in this program occurs in
+    the member function buildFromPostfix(const std::string postfix). This function first clears a tree if it already contains nodes via the private member 
+    function makeEmpty(BinaryNode* &t), which has a time complexity of O(n). The function also contains a while loop which has a time complexity of O(n). 
+    All other operations in this function have a time complexity of O(1). Therefore, building an expression tree from a postfix expression through this function
+    takes at most O(n).
